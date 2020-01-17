@@ -1,0 +1,5 @@
+,Plate_id,Well_id,results_file,chemotaxis_index,centroid_x,centroid_y
+0,DEC_P1,P,/Users/emilyfryer/Desktop/crop_check/automated_analysis_results/DEC_P1_automatedAnalyzer_P.csv,0.5087719298245614,519.7763856828768,1623.7668544900832
+1,DEC_P1,Q,/Users/emilyfryer/Desktop/crop_check/automated_analysis_results/DEC_P1_automatedAnalyzer_Q.csv,0.27835051546391754,567.900437913118,1642.4362274769398
+2,DEC_P1,R,/Users/emilyfryer/Desktop/crop_check/automated_analysis_results/DEC_P1_automatedAnalyzer_R.csv,0.15625,481.4809637243541,1810.1928037527744
+3,DEC_P1,S,/Users/emilyfryer/Desktop/crop_check/automated_analysis_results/DEC_P1_automatedAnalyzer_S.csv,0.0,536.5861304707008,1874.5900573760832
