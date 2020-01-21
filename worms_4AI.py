@@ -25,7 +25,7 @@ import seaborn as sns
 # In[2]:
 
 ### Change this line to match your file path
-base_folder = pathlib.Path('/Users/emilyfryer/Desktop/worms_4AI')
+base_folder = pathlib.Path('/Users/emilyfryer/Desktop/worm_collector')
 
 
 image_location = base_folder.joinpath('Images')
@@ -217,21 +217,9 @@ def compare_manVauto(auto_ID_worms, manual_ID_worms):
 
 
 
-def package_data(compared):
-    for worm in compared:
-        results_dict =  {'Plate_id': plate_id,
-                        'Well_id': well_id,
-                        'Area': worm.area,
-                        'Convex Area': worm.convex_area,
-                        'Major_axis_length': worm.major_axis_length, 
-                        'bbox': worm.bbox,
-                        'centroid': worm.centroid}
-        return results_dict
-
-
 # Loop through all of the images
 
-results_list = []
+results = []
 start_time = time.time()
 for image in image_location.glob('DEC*Fin.tif'): #image_location.glob('scan*Fin.tif'): #
     plate_start = time.time()
@@ -261,11 +249,19 @@ for image in image_location.glob('DEC*Fin.tif'): #image_location.glob('scan*Fin.
         ## Compare manually annotated worms with automatically located worms and filter out any discrepencies
         definitely_worms = compare_manVauto(worms, manual_results)
         
-        ## Retrieve values from the objects returned and store their dictionary values
-        results_dict = package_data(definitely_worms)
-        
-        # This is the list of dictionaries that hold all of the worm data
-        results_list.append(results_dict)
+        for worm in definitely_worms:
+            results_dict =  {'Plate_id': plate_id,
+                            'Well_id': well_id,
+                            'Area': worm.area,
+                            'Convex Area': worm.convex_area,
+                            'Major_axis_length': worm.major_axis_length, 
+                            'bbox': worm.bbox,
+                            'centroid': worm.centroid}
+            results.append(results_dict)
+
+#Save results to a csv
+results_df = pd.DataFrame(results)
+results_df.to_csv(path_or_buf=base_folder.joinpath('confirmed_worms.csv'))
         
 
 

@@ -6,4 +6,4 @@ This repo is dedicated to retrieving data for automated worm counting for the Ne
 
 2. All pre and post images are included in this repo, along with manual annotations.
 
-
+3. Worms are saved as a list of dictionaries in 'results_list'.
