@@ -272,5 +272,4 @@ for image in image_location.glob('DEC*Fin.tif'): #image_location.glob('scan*Fin.
 # In[31]:
 
 print('Total Time', str(int(time.time()-start_time)), 'seconds.')
-results
 
